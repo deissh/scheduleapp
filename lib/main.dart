@@ -1,12 +1,18 @@
+import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'core/locator.dart';
 import 'core/providers.dart';
 import 'core/services/navigator_service.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'views/home/home_view.dart';
 
 void main() async {
   await LocatorInjector.setupLocator();
+  // SystemChrome.setPreferredOrientations(
+  //   [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]
+  // );
+
   runApp(MainApplication());
 }
 

@@ -9,32 +9,18 @@ class _HomeMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Mobile'),
-        backgroundColor: Colors.black,
+      appBar: CustomAppBar(
+        title: "Расписание",
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times: ',
-              style: TextStyle(fontSize: 14),
-            ),
-            Text(
-              '${viewModel.counter}',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+      body: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            children: <Widget>[
+              
+              
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          _navigator.navigateToPage(MaterialPageRoute(builder: (context) => LoginView()));
-        },
-        backgroundColor: Colors.black,
-      ),
     );
   }
 }
