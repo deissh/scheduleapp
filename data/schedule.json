@@ -1,0 +1,66 @@
+{
+    "week_num": 12,
+    "week": [
+        [
+            {
+                "name": "Языки програмирования",
+                "subname": "МДК-01-01",
+                "lecturer": {
+                    "id": 10,
+                    "first_name": "Leon",
+                    "second_name": "Neff",
+                    "patronymic": "None"
+                },
+                "location": "204",
+                "tags": [],
+                "user_events": [
+                    "Проверочная работа"
+                ],
+                "start_at": 1581928200,
+                "end_at": 1581933900,
+                "break": true,
+                "status": "SCHEDULED"
+            },
+            {
+                "name": "Языки програмирования",
+                "subname": "МДК-01-01",
+                "lecturer": {
+                    "id": 10,
+                    "first_name": "Leon",
+                    "second_name": "Neff",
+                    "patronymic": "None"
+                },
+                "location": "204",
+                "tags": [],
+                "user_events": [
+                    "Проверочная работа"
+                ],
+                "start_at": 1581928200,
+                "end_at": 1581933900,
+                "break": true,
+                "status": "SCHEDULED"
+            }
+        ],
+        [
+            {
+                "name": "Языки програмирования",
+                "subname": "МДК-01-01",
+                "lecturer": {
+                    "id": 10,
+                    "first_name": "Leon",
+                    "second_name": "Neff",
+                    "patronymic": "None"
+                },
+                "location": "204",
+                "tags": [],
+                "user_events": [
+                    "Проверочная работа"
+                ],
+                "start_at": 1581928200,
+                "end_at": 1581933900,
+                "break": true,
+                "status": "CANCELED"
+            }
+        ]
+    ]
+}
