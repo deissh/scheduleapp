@@ -7,10 +7,7 @@ import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:scheduleapp/widgets/app_bar.dart';
-import 'package:scheduleapp/widgets/title_text.dart';
 import 'home_view_model.dart';
-import '../../widgets/app_bar.dart';
-import '../../widgets/title_text.dart';
 
 part 'home_mobile.dart';
 part 'home_tablet.dart';
