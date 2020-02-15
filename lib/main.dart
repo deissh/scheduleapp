@@ -15,10 +15,15 @@ class MainApplication extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: ProviderInjector.providers,
-      child: MaterialApp(
-        navigatorKey: locator<NavigatorService>().navigatorKey,
-        home: HomeView(),
-      ),
+      child: WillPopScope(
+        child: MaterialApp(
+          navigatorKey: locator<NavigatorService>().navigatorKey,
+          home: HomeView(),
+        ),
+        onWillPop: () async {
+          locator<NavigatorService>().pop();
+        }
+      )
     );
   }
 }
