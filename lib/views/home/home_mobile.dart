@@ -16,7 +16,7 @@ class _HomeMobile extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: Column(
             children: <Widget>[
-              
+              Text("hi")
               
             ],
           ),

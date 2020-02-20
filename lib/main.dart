@@ -1,11 +1,10 @@
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:scheduleapp/views/guard/guard_view.dart';
 
 import 'core/locator.dart';
 import 'core/providers.dart';
 import 'core/services/navigator_service.dart';
-import 'views/home/home_view.dart';
 
 void main() async {
   await LocatorInjector.setupLocator();
@@ -24,7 +23,7 @@ class MainApplication extends StatelessWidget {
       child: WillPopScope(
         child: MaterialApp(
           navigatorKey: locator<NavigatorService>().navigatorKey,
-          home: HomeView(),
+          home: GuardView(),
         ),
         onWillPop: () async {
           locator<NavigatorService>().pop();
