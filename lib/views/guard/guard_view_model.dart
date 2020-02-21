@@ -10,7 +10,7 @@ class GuardViewModel extends BaseViewModel {
 
   NavigatorService _navigator = locator<NavigatorService>();
   GuardViewModel();
-  
+
   set status(String value) {
     _status = value;
     notifyListeners();
@@ -48,6 +48,6 @@ class GuardViewModel extends BaseViewModel {
 
     status = "";
 
-    await _navigator.navigateToPage(MaterialPageRoute(builder: (context) => new HomeView()));
+    await _navigator.navigateToPageWithReplacement(MaterialPageRoute(builder: (context) => new HomeView()));
   }
 }

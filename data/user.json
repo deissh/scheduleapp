@@ -1,0 +1,17 @@
+{
+    "id": 1,
+    "first_name": "Leon",
+    "second_name": "Neff",
+    "email": "deissh@yandex.ru",
+    "avatar_url": "https://avatars1.githubusercontent.com/u/21129524",
+    "registration_date": "2020-02-21T07:00:53.098Z",
+    "last_activity": "2020-02-21T07:00:53.098Z",
+    "active": true,
+    "bdate": "19.01.2000",
+    "gender": "M",
+    "notifications": {
+        "updates": true,
+        "pm": true,
+        "mentions": true
+    }
+}
