@@ -1,6 +1,9 @@
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:scheduleapp/views/guard/guard_view.dart';
+import 'package:scheduleapp/views/greeting/greeting_view.dart';
 
 import 'core/locator.dart';
 import 'core/providers.dart';
@@ -18,15 +21,17 @@ void main() async {
 class MainApplication extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var _nav = locator<NavigatorService>();
+
     return MultiProvider(
       providers: ProviderInjector.providers,
       child: WillPopScope(
         child: MaterialApp(
-          navigatorKey: locator<NavigatorService>().navigatorKey,
-          home: GuardView(),
+          navigatorKey: _nav.navigatorKey,
+          home: _nav.guard(new GreetingView()),
         ),
         onWillPop: () async {
-          locator<NavigatorService>().pop();
+          _nav.pop();
         }
       )
     );

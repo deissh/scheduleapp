@@ -1,3 +1,5 @@
+import 'package:scheduleapp/views/login/login_view.dart';
+
 import '../../core/base/base_service.dart';
 import 'package:flutter/material.dart';
 
@@ -31,5 +33,10 @@ class NavigatorService extends BaseService {
       return;
     }
     navigatorKey.currentState.pop(result);
+  }
+
+  Widget guard(Widget widget) {
+    if (true) return new LoginView();
+    return widget;
   }
 }

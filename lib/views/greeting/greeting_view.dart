@@ -1,28 +1,27 @@
-library guard_view;
+library greeting_view;
 
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:scheduleapp/widgets/delayed_animation.dart';
-import 'guard_view_model.dart';
+import 'greeting_view_model.dart';
 
-part 'guard_mobile.dart';
-part 'guard_tablet.dart';
+part 'greeting_mobile.dart';
+part 'greeting_tablet.dart';
 
-class GuardView extends StatelessWidget {
+class GreetingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    GuardViewModel viewModel = GuardViewModel();
-
-    return ViewModelProvider<GuardViewModel>.withConsumer(
+    GreetingViewModel viewModel = GreetingViewModel();
+    return ViewModelProvider<GreetingViewModel>.withConsumer(
       viewModel: viewModel,
       onModelReady: (viewModel) async {
-        await viewModel.checkCredentinals();
+        await viewModel.checkUpdates();
       },
       builder: (context, viewModel, child) {
         return ScreenTypeLayout(
-          mobile: _GuardMobile(viewModel),
-          tablet: _GuardTablet(viewModel),  
+          mobile: _GreetingMobile(viewModel),
+          tablet: _GreetingTablet(viewModel),
         );
       }
     );

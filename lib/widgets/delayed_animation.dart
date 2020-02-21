@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 class DelayedAnimation extends StatefulWidget {
   final Widget child;
   final int delay;
+  final VoidCallback onReady;
 
-  DelayedAnimation({@required this.child, this.delay});
+  DelayedAnimation({@required this.child, this.delay, this.onReady});
 
   @override
   _DelayedAnimationState createState() => _DelayedAnimationState();
@@ -34,6 +35,7 @@ class _DelayedAnimationState extends State<DelayedAnimation>
     } else {
       Timer(Duration(milliseconds: widget.delay), () {
         _controller.forward();
+        if (widget.onReady != null) widget.onReady();
       });
     }
   }

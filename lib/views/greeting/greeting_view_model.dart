@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:scheduleapp/core/base/base_view_model.dart';
 import 'package:scheduleapp/core/locator.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
 import 'package:scheduleapp/views/home/home_view.dart';
 
-class GuardViewModel extends BaseViewModel {
+class GreetingViewModel extends BaseViewModel {
   String _status = "";
 
   NavigatorService _navigator = locator<NavigatorService>();
-  GuardViewModel();
+  GreetingViewModel();
 
   set status(String value) {
     _status = value;
     notifyListeners();
 
-    log.log(Level.info, "guard status chaged");
+    log.d("guard status chaged");
   }
   String get status => _status;
 
@@ -33,10 +32,7 @@ class GuardViewModel extends BaseViewModel {
       return "С добрым утром,";
   }
 
-  Future<void> checkCredentinals() async {
-    status = "Проверка аккаунта";
-    await Future.delayed(Duration(seconds: 3));
-
+  Future<void> checkUpdates() async {
     status = "Проверка обновлений";
     await Future.delayed(Duration(seconds: 3));
 

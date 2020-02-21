@@ -1,9 +1,9 @@
-part of guard_view;
+part of greeting_view;
 
-class _GuardMobile extends StatelessWidget {
-  final GuardViewModel viewModel;
+class _GreetingMobile extends StatelessWidget {
+  final GreetingViewModel viewModel;
 
-  _GuardMobile(this.viewModel);
+  _GreetingMobile(this.viewModel);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _GuardMobile extends StatelessWidget {
                   ),
                   delay: 3500,
                 ),
-                  
+
                 Spacer(),
 
                 DelayedAnimation(
@@ -52,7 +52,7 @@ class _GuardMobile extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  delay: 3500,
+                  delay: 500,
                 ),
               ],
             ),
