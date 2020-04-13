@@ -13,14 +13,14 @@ class _HomeMobile extends StatelessWidget {
         title: "Расписание",
       ),
       body: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            children: <Widget>[
-              Text("hi")
-              
-            ],
-          ),
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: <Widget>[
+            Text("hi")
+
+          ],
         ),
+      ),
     );
   }
 }

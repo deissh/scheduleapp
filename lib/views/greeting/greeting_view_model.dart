@@ -3,6 +3,7 @@ import 'package:scheduleapp/core/base/base_view_model.dart';
 import 'package:scheduleapp/core/locator.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
 import 'package:scheduleapp/views/home/home_view.dart';
+import 'package:scheduleapp/views/tabs/tabs_view.dart';
 
 class GreetingViewModel extends BaseViewModel {
   String _status = "";
@@ -21,15 +22,15 @@ class GreetingViewModel extends BaseViewModel {
   String get gretting {
     var hour = new DateTime.now().hour;
 
-    var afternoon = 12;
-	  var evening = 17;
 
-    if(hour >= afternoon && hour <= evening)
-      return "Добной ночи,";
-    else if(hour >= evening)
+    if (hour < 10)
+      return "С добрым утром,";
+    else if(hour < 16)
+      return "Добрый день,";
+    else if(hour < 22)
       return "Добрый вечер,";
     else
-      return "С добрым утром,";
+      return "Добной ночи,";
   }
 
   Future<void> checkUpdates() async {
@@ -44,6 +45,6 @@ class GreetingViewModel extends BaseViewModel {
 
     status = "";
 
-    await _navigator.navigateToPageWithReplacement(MaterialPageRoute(builder: (context) => new HomeView()));
+    await _navigator.navigateToPageWithReplacement(MaterialPageRoute(builder: (context) => new TabsView()));
   }
 }
