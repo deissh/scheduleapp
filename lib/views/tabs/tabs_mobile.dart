@@ -8,11 +8,12 @@ class _TabsMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: viewModel.tabs.length,
       child: new Scaffold(
         body: TabBarView(
           children: <Widget>[
 
+            new HomeView(),
             new HomeView(),
             new HomeView(),
             new HomeView(),

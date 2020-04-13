@@ -10,7 +10,6 @@ import 'package:scheduleapp/widgets/app_bar.dart';
 import 'home_view_model.dart';
 
 part 'home_mobile.dart';
-part 'home_tablet.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -24,7 +23,6 @@ class HomeView extends StatelessWidget {
       builder: (context, viewModel, child) {
         return ScreenTypeLayout(
           mobile: _HomeMobile(viewModel),
-          tablet: _HomeTablet(viewModel),  
         );
       }
     );

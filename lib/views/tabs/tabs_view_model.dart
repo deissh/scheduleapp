@@ -3,16 +3,17 @@ import 'package:flutter/widgets.dart';
 import 'package:scheduleapp/core/base/base_view_model.dart';
 
 class TabsViewModel extends BaseViewModel {
-  List<dynamic> _tabs = [
-    Icons.home,
-    Icons.rss_feed,
-    Icons.perm_identity,
+  List<dynamic> tabs = [
+    Icons.apps,
+    Icons.calendar_today,
+    Icons.notifications,
+    Icons.message,
   ];
 
   TabsViewModel();
 
   List<Widget> getTabs() {
-    return _tabs.map(
+    return tabs.map(
       (v) => Tab(icon: new Icon(v))
     ).toList();
   }

@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'login_view_model.dart';
 
 part 'login_mobile.dart';
-part 'login_tablet.dart';
 
 class LoginView extends StatelessWidget {
   @override
@@ -20,7 +19,6 @@ class LoginView extends StatelessWidget {
       builder: (context, viewModel, child) {
         return ScreenTypeLayout(
           mobile: _LoginMobile(viewModel),
-          tablet: _LoginTablet(viewModel),  
         );
       }
     );

@@ -20,12 +20,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             Row(
               children: <Widget>[
                 ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image(
-                      image: NetworkImage("https://avatars1.githubusercontent.com/u/21129524?s=460&v=4"),
-                      width: 50,
-                    ),
-                  )
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image(
+                    image: NetworkImage("https://301222.selcdn.ru/akasi/avatars/1.png"),
+                    width: 50,
+                  ),
+                )
               ],
             ),
 
