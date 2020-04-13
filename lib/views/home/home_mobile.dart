@@ -19,6 +19,7 @@ class _HomeMobile extends StatelessWidget {
             height: 170,
             child: new ListView.builder(
               padding: EdgeInsets.all(20),
+              physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: 5,
               itemBuilder: (BuildContext contex, int index) {
