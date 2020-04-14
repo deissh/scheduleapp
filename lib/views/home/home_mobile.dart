@@ -38,27 +38,30 @@ class _HomeMobile extends StatelessWidget {
 
           Container(
             child: CalendarStrip(
-              selectedDate: DateTime.now(),
+              selectedDate: viewModel.selectedDay,
               startDate: firstMonday(),
               endDate: firstMonday().add(new Duration(days: 7)),
-              onDateSelected: () => {},
+              onDateSelected: (data) {
+                viewModel.selectedDay = data;
+              },
               dateTileBuilder: (date, selectedDate, rowIndex, dayName, isDateMarked, isDateOutOfRange) {
                 bool isSelectedDate = date.compareTo(selectedDate) == 0;
                 Color fontColor = isDateOutOfRange ? Colors.black26 : Colors.black87;
+
                 TextStyle normalStyle = TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: fontColor);
-                TextStyle selectedStyle = TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: Colors.red);
+                TextStyle todayStyle = TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: Colors.red);
                 TextStyle dayNameStyle = TextStyle(fontSize: 14.5, color: fontColor);
+
                 List<Widget> _children = [
                   Text(dayName, style: dayNameStyle),
-                  Text(date.day.toString(), style: !isSelectedDate ? normalStyle : selectedStyle),
+                  Text(date.day.toString(), style: DateTime.now().day != date.day ? normalStyle : todayStyle),
                 ];
 
-                return AnimatedContainer(
-                  duration: Duration(milliseconds: 150),
+                return Container(
                   alignment: Alignment.center,
                   padding: EdgeInsets.only(top: 8, left: 5, right: 5, bottom: 5),
                   decoration: BoxDecoration(
-                    color: !isSelectedDate ? Colors.transparent : Colors.white70,
+                    color: !isSelectedDate ? Colors.transparent : Color.fromRGBO(240,239,242, 1),
                     borderRadius: BorderRadius.all(Radius.circular(60)),
                   ),
                   child: Column(
