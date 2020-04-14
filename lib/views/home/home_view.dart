@@ -1,5 +1,6 @@
 library home_view;
 
+import 'package:scheduleapp/widgets/calendar_strip.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:scheduleapp/core/locator.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
