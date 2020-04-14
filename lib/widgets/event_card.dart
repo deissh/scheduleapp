@@ -1,14 +1,12 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:scheduleapp/core/dto/motd.dart';
 
 class EventCard extends StatelessWidget {
-  final DateTime timestamp;
-  final String body;
-  final String type;
-  final Color typeColor;
+  final Motd motd;
 
-  EventCard(this.timestamp, this.body, this.type, this.typeColor);
+  EventCard(this.motd);
 
   Widget build(BuildContext context) {
     return Container(
@@ -26,22 +24,24 @@ class EventCard extends StatelessWidget {
             children: <Widget>[
 
               Text(
-                DateFormat('hh:mm dd/mm').format(this.timestamp),
+                DateFormat('kk:mm dd/MM').format(this.motd.createdAt),
                 style: TextStyle(
                   color: Color.fromRGBO(162,161,164,1)
                 ),
               ),
 
-              Text("very long message of the day"),
+              Text(this.motd.message),
               Spacer(),
 
               Row(children: <Widget>[
-                Text(this.type),
+                Text(this.motd.type),
                 Spacer(),
                 Container(
                   decoration: new BoxDecoration(
                     shape: BoxShape.circle,
-                    color: this.typeColor
+                    color: new Color(
+                      int.parse("0x" + this.motd.typeColor.replaceFirst('#', ''))
+                    ).withOpacity(1),
                   ),
                   width: 10.0,
                   height: 10.0,

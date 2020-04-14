@@ -1,22 +1,18 @@
 import 'package:scheduleapp/core/base/base_view_model.dart';
-import 'package:scheduleapp/core/locator.dart';
-import 'package:scheduleapp/core/logger.dart';
-import 'package:scheduleapp/views/login/login_view.dart';
-import 'package:logger/logger.dart';
+import 'package:scheduleapp/core/dto/motd.dart';
 
 class HomeViewModel extends BaseViewModel {
-  int _counter;
-  Logger _logger = getLogger("HomeViewModel");
+  List<Motd> motds = [];
+  HomeViewModel();
 
-  HomeViewModel({int counter = 0}) : this._counter = counter;
 
-  int get counter => this._counter;
-  set counter(int value) {
-    this._counter = value;
+  loadEvents() async {
+    log.d("loading MOTD");
+    await Future.delayed(Duration(seconds: 3));
+
+    motds = [
+      Motd.fromJson('{"id": "4d31304c-d53a-4166-9f7b-a34e4ea8382e","created_at": "2020-04-14T10:25:12+0000","message": "lorem ipsu","type": "Обновление","type_color": "#6666ff"}')
+    ];
     notifyListeners();
-
-    _logger.log(Level.info, "test message");
   }
-
-  void increment() => this.counter += 1;
 }

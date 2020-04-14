@@ -18,8 +18,8 @@ class HomeView extends StatelessWidget {
     HomeViewModel viewModel = HomeViewModel();
     return ViewModelProvider<HomeViewModel>.withConsumer(
       viewModel: viewModel,
-      onModelReady: (viewModel) {
-        // Do something once your viewModel is initialized
+      onModelReady: (viewModel) async {
+        viewModel.loadEvents();
       },
       builder: (context, viewModel, child) {
         return ScreenTypeLayout(
