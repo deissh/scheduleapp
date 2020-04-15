@@ -17,15 +17,15 @@ class _HomeMobile extends StatelessWidget {
       appBar: CustomAppBar(
         title: "Главная",
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
+        physics: BouncingScrollPhysics(),
         children: <Widget>[
           Visibility(
             visible: viewModel.motds.length > 0,
             child: Container(
               height: 170,
               child: new ListView.builder(
-              padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(15),
                 physics: BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: viewModel.motds.length,
@@ -73,8 +73,26 @@ class _HomeMobile extends StatelessWidget {
               monthNameWidget: (monthName) => Text(""),
               markedDates: [],
               containerDecoration: BoxDecoration(),
-            ))
-        ],
+            )
+          ),
+
+
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+
+                ScheduleItem(null),
+                ScheduleItem(null),
+                ScheduleItem(null),
+
+
+              ],
+            ),
+          )
+        ]
       ),
     );
   }
