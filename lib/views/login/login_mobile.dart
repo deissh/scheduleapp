@@ -6,44 +6,48 @@ class _LoginMobile extends StatelessWidget {
   _LoginMobile(this.viewModel);
 
 
-  final loginField = TextFormField(
-    keyboardType: TextInputType.emailAddress,
-    autofocus: false,
-    initialValue: 'admin@gmail.com',
-    decoration: InputDecoration(
-      hintText: 'Email',
-      contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-    ),
-    style: TextStyle(
-      color: Colors.white,
-    ),
-  );
+  Widget loginField() {
+    return TextFormField(
+      controller: viewModel.loginController,
+      keyboardType: TextInputType.emailAddress,
+      autofocus: false,
+      decoration: InputDecoration(
+        hintText: 'Логин',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+      style: TextStyle(
+        color: Colors.white,
+      ),
+    );
+  }
 
 
-  final passwordField = TextFormField(
-    autofocus: false,
-    initialValue: 'some password',
-    obscureText: true,
-    decoration: InputDecoration(
-      hintText: 'Password',
-      contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-    ),
-    style: TextStyle(
-      color: Colors.white,
-    ),
-  );
+  Widget passwordField () {
+    return TextFormField(
+      controller: viewModel.passController,
+      autofocus: false,
+      obscureText: true,
+      decoration: InputDecoration(
+        hintText: 'Пароль',
+        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+      ),
+      style: TextStyle(
+        color: Colors.white,
+      ),
+    );
+  }
 
 
-  loginButton (context) => Container(
+  Widget loginButton (context) => Container(
     width: double.infinity,
     child: RaisedButton(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(24),
       ),
       onPressed: () async {
-        await viewModel.login();
+        await viewModel.login(context);
       },
       padding: EdgeInsets.all(15),
       color: Theme.of(context).bottomAppBarColor,
@@ -63,7 +67,6 @@ class _LoginMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
 
       body: SafeArea(
         child: Padding(
@@ -73,9 +76,9 @@ class _LoginMobile extends StatelessWidget {
               children: <Widget>[
                 Spacer(),
 
-                loginField,
+                loginField(),
                 SizedBox(height: 15.0),
-                passwordField,
+                passwordField(),
                 SizedBox(height: 50.0),
                 loginButton(context),
                 forgotLabel,

@@ -1,0 +1,3 @@
+const OAUTH2_SERVICE_URL = "https://aio.eu.auth0.com";
+const CLIENT_ID = "PoMQ5Le3iu461Rbkdubb620V0b1FINCe";
+const CLIENT_SECRET = "hAGKQGX7oVQt5GGq7YgVGlG_AdA3CuVJtlEXpRai7c_0KSt71LWzZ6aE13_wYE70";
