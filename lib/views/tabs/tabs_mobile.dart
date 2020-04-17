@@ -11,12 +11,13 @@ class _TabsMobile extends StatelessWidget {
       length: viewModel.tabs.length,
       child: new Scaffold(
         body: TabBarView(
+          // physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
 
-            new HomeView(),
-            new HomeView(),
-            new HomeView(),
-            new HomeView(),
+            HomeView(),
+            HomeView(),
+            HomeView(),
+            HomeView(),
 
           ],
         ),

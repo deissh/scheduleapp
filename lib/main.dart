@@ -1,6 +1,3 @@
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scheduleapp/views/greeting/greeting_view.dart';
@@ -30,7 +27,7 @@ class MainApplication extends StatelessWidget {
           navigatorKey: _nav.navigatorKey,
           home: _nav.guard(new GreetingView()),
         ),
-        onWillPop: () async {
+        onWillPop: (){
           _nav.pop();
         }
       )

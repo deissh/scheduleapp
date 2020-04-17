@@ -88,7 +88,6 @@ class _HomeMobile extends StatelessWidget {
                 ScheduleItem(null),
                 ScheduleItem(null),
 
-
               ],
             ),
           )
