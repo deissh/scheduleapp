@@ -10,7 +10,7 @@ class ScheduleItem extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: 2.5),
       child: Row(
         children: <Widget>[
           Container(

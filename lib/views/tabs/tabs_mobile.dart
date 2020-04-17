@@ -21,15 +21,25 @@ class _TabsMobile extends StatelessWidget {
 
           ],
         ),
-        bottomNavigationBar: new TabBar(
-          tabs: this.viewModel.getTabs(),
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                color: Color.fromRGBO(184,186,202, 0.3),
+                width: 1.0,
+              )
+            )
+          ),
+          child: new TabBar(
+            tabs: this.viewModel.getTabs(),
 
-          // todo: this
-          labelColor: Color.fromRGBO(113,116,133, 1.0),
-          unselectedLabelColor: Color.fromRGBO(184,186,202, 1.0),
-          indicatorSize: TabBarIndicatorSize.label,
-          indicatorPadding: EdgeInsets.all(5.0),
-          indicatorColor: Color.fromRGBO(113,116,133, 1.0),
+            // todo: this
+            labelColor: Color.fromRGBO(113,116,133, 1.0),
+            unselectedLabelColor: Color.fromRGBO(184,186,202, 1.0),
+            indicatorSize: TabBarIndicatorSize.label,
+            indicatorPadding: EdgeInsets.all(5.0),
+            indicatorColor: Color.fromRGBO(113,116,133, 1.0),
+          ),
         ),
       ),
     );

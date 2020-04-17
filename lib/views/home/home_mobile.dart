@@ -86,6 +86,15 @@ class _HomeMobile extends StatelessWidget {
 
                 ScheduleItem(null),
                 ScheduleItem(null),
+
+                ScheduleDivider(
+                  "Обед",
+                  "",
+                  "11:50",
+                  "12:30"
+                ),
+
+                ScheduleItem(null),
                 ScheduleItem(null),
 
               ],
