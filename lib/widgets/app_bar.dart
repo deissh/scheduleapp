@@ -5,10 +5,29 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   String title = "";
   double height = 140.0;
 
-  CustomAppBar({ Key key, this.title}) : super(key: key);
+  CustomAppBar({ Key key, this.title}) {
+    if (title == null) height = 80;
+  }
 
   @override
   Size get preferredSize => Size.fromHeight(this.height);
+
+  Widget getTitle(BuildContext context) {
+    return this.title != null ? Row(
+      children: <Widget>[
+        Text(
+          this.title,
+          style: Theme.of(context)
+            .textTheme
+            .display1
+            .apply(
+              color: Colors.black,
+              fontWeightDelta: 1,
+            )
+        )
+      ],
+    ) : Row();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,20 +50,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
             Spacer(),
 
-            Row(
-              children: <Widget>[
-                Text(
-                  this.title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .display1
-                      .apply(
-                        color: Colors.black,
-                        fontWeightDelta: 1,
-                      )
-                )
-              ],
-            ),
+            getTitle(context),
           ],
         ),
       ),

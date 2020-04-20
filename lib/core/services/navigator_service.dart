@@ -36,7 +36,7 @@ class NavigatorService extends BaseService {
   }
 
   Widget guard(Widget widget) {
-    if (true) return new LoginView();
+    // if (true) return new LoginView();
     return widget;
   }
 }

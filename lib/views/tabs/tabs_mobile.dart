@@ -15,9 +15,9 @@ class _TabsMobile extends StatelessWidget {
           children: <Widget>[
 
             HomeView(),
-            HomeView(),
-            HomeView(),
-            HomeView(),
+            NewsView(),
+            // NotificationsView(),
+            // HomeView(),
 
           ],
         ),

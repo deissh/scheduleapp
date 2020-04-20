@@ -5,9 +5,9 @@ import 'package:scheduleapp/core/base/base_view_model.dart';
 class TabsViewModel extends BaseViewModel {
   List<dynamic> tabs = [
     Icons.apps,
-    Icons.calendar_today,
-    Icons.notifications,
-    Icons.message,
+    Icons.school,
+    // Icons.notifications,
+    // Icons.portrait,
   ];
 
   TabsViewModel();
