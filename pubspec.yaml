@@ -16,6 +16,7 @@ dependencies:
     avatar_glow:
     intl: ^0.16.1
     dio: ^3.0.8
+    shared_preferences: ^0.4.3
 dev_dependencies:
     flutter_test:
         sdk: flutter

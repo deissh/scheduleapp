@@ -1,37 +1,36 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scheduleapp/core/base/base_view_model.dart';
 import 'package:scheduleapp/core/locator.dart';
-import 'package:scheduleapp/core/services/api_service.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
 import 'package:scheduleapp/views/greeting/greeting_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginViewModel extends BaseViewModel {
   NavigatorService _navigator = locator<NavigatorService>();
-  ApiService _api = locator<ApiService>();
 
-  TextEditingController loginController = TextEditingController();
-  TextEditingController passController = TextEditingController();
+  TextEditingController fnc = TextEditingController();
+  TextEditingController snc = TextEditingController();
+
+
+  int _currentStep = 0;
+
+  get currentStep => _currentStep;
+  set currentStep(int value) {
+    _currentStep = value;
+
+    if (_currentStep == 4) login();
+
+    notifyListeners();
+  }
 
   LoginViewModel();
 
-  Future<void> login(BuildContext context) async {
-    try {
-      await _api.login(loginController.value.text, passController.value.text);
-    } on DioError catch(e) {
-      print(e.response);
-
-      return showDialog(
-        context: context,
-        builder: (BuildContext context){
-            return AlertDialog(
-              title: Text("Ошибка авторизации"),
-              content: Text(e.response.data.toString()),
-            );
-        }
-      );
-    }
+  Future<void> login() async {
+    var prefs = await SharedPreferences.getInstance();
+    prefs.setBool("logined", true);
+    prefs.setString("current_user_first_name", fnc.text.trim());
+    prefs.setString("current_user_second_name", snc.text.trim());
 
     await _navigator.navigateToPageWithReplacement(MaterialPageRoute(builder: (_) => new GreetingView()));
   }

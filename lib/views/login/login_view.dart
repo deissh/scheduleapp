@@ -1,5 +1,7 @@
 library login_view;
 
+import 'dart:math';
+
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +15,7 @@ class LoginView extends StatelessWidget {
     LoginViewModel viewModel = LoginViewModel();
     return ViewModelProvider<LoginViewModel>.withConsumer(
       viewModel: viewModel,
-      onModelReady: (viewModel) {
-        // Do something once your viewModel is initialized
-      },
+      onModelReady: (viewModel){},
       builder: (context, viewModel, child) {
         return ScreenTypeLayout(
           mobile: _LoginMobile(viewModel),

@@ -32,7 +32,7 @@ class _GreetingMobile extends StatelessWidget {
 
                 DelayedAnimation(
                   child: Text(
-                    "Кирилл!",
+                    viewModel.firstName,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 35.0,

@@ -15,7 +15,7 @@ class _HomeMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: "Главная",
+        title: "Расписание",
       ),
       body: ListView(
         physics: BouncingScrollPhysics(),

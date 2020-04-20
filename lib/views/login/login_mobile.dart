@@ -6,86 +6,81 @@ class _LoginMobile extends StatelessWidget {
   _LoginMobile(this.viewModel);
 
 
-  Widget loginField() {
+  Widget field(BuildContext context, TextEditingController controller) {
     return TextFormField(
-      controller: viewModel.loginController,
-      keyboardType: TextInputType.emailAddress,
+      controller: controller,
+      keyboardType: TextInputType.text,
       autofocus: false,
       decoration: InputDecoration(
-        hintText: 'Логин',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
+        // contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+        // border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
       ),
       style: TextStyle(
-        color: Colors.white,
+        color: Theme.of(context).textTheme.body1.color,
       ),
     );
   }
-
-
-  Widget passwordField () {
-    return TextFormField(
-      controller: viewModel.passController,
-      autofocus: false,
-      obscureText: true,
-      decoration: InputDecoration(
-        hintText: 'Пароль',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-      ),
-      style: TextStyle(
-        color: Colors.white,
-      ),
-    );
-  }
-
-
-  Widget loginButton (context) => Container(
-    width: double.infinity,
-    child: RaisedButton(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24),
-      ),
-      onPressed: () async {
-        await viewModel.login(context);
-      },
-      padding: EdgeInsets.all(15),
-      color: Theme.of(context).bottomAppBarColor,
-      child: Text('Войти', style: TextStyle(color: Colors.black)),
-    ),
-  );
-
-  final forgotLabel = FlatButton(
-    child: Text(
-      'Забыли пароль?',
-      style: TextStyle(color: Colors.black54),
-    ),
-    onPressed: () {},
-  );
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(15),
-          child: Center(
-            child: Column(
+        child: new Stepper(
+          type: StepperType.vertical,
+          currentStep: viewModel.currentStep,
+          onStepTapped: (int step) => viewModel.currentStep = step,
+          onStepContinue: viewModel.currentStep < 5 ? () { viewModel.currentStep += 1; } : null,
+          onStepCancel: viewModel.currentStep > 0 ? () { viewModel.currentStep -= 1; } : null,
+          controlsBuilder: (BuildContext context, {VoidCallback onStepContinue, VoidCallback onStepCancel}) {
+            return Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Spacer(),
-
-                loginField(),
-                SizedBox(height: 15.0),
-                passwordField(),
-                SizedBox(height: 50.0),
-                loginButton(context),
-                forgotLabel,
-
+                FlatButton(
+                  onPressed: onStepCancel,
+                  child: const Text('Назад'),
+                ),
+                FlatButton(
+                  onPressed: onStepContinue,
+                  child: const Text('Дальше'),
+                ),
               ],
+            );
+          },
+
+          steps: <Step>[
+            new Step(
+              title: new Text('Имя'),
+              content: field(context, viewModel.fnc),
+              isActive: viewModel.currentStep >= 0,
+              state: viewModel.currentStep >= 0 ? StepState.complete : StepState.disabled,
             ),
-          ),
+            new Step(
+              title: new Text('Фамилия'),
+              content: field(context, viewModel.snc),
+              isActive: viewModel.currentStep >= 0,
+              state: viewModel.currentStep >= 1 ? StepState.complete : StepState.disabled,
+            ),
+            new Step(
+              title: new Text('Группа'),
+              content: new Text('This is the second step.'),
+              isActive: viewModel.currentStep >= 0,
+              state: viewModel.currentStep >= 2 ? StepState.complete : StepState.disabled,
+            ),
+            new Step(
+              title: new Text('Cоглашение о конфиденциальности'),
+              content: new Text('This is the third step.'),
+              isActive: viewModel.currentStep >= 0,
+              state: viewModel.currentStep >= 3 ? StepState.complete : StepState.disabled,
+            ),
+            new Step(
+              title: new Text('Конец'),
+              content: new Text('This is the third step.'),
+              isActive: viewModel.currentStep >= 0,
+              state: viewModel.currentStep >= 4 ? StepState.complete : StepState.disabled,
+            ),
+          ],
         )
       ),
     );
