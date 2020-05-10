@@ -5,7 +5,6 @@ import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:scheduleapp/views/home/home_view.dart';
 import 'package:scheduleapp/views/news/news_view.dart';
-import 'package:scheduleapp/views/notifications/notifications_view.dart';
 import 'tabs_view_model.dart';
 
 part 'tabs_mobile.dart';

@@ -40,7 +40,7 @@ class _HomeMobile extends StatelessWidget {
             child: CalendarStrip(
               selectedDate: viewModel.selectedDay,
               startDate: firstMonday(),
-              endDate: firstMonday().add(new Duration(days: 7)),
+              endDate: firstMonday().add(new Duration(days: 14)),
               onDateSelected: (data) {
                 viewModel.selectedDay = data;
               },
