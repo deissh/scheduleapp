@@ -1,13 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   String title = "";
   double height = 140.0;
-  String avatar = "https://301222.selcdn.ru/akasi/avatars/1.png";
+  String avatar;
+  VoidCallback onAvatarClick = () => {};
 
-  CustomAppBar({ Key key, this.title, this.avatar}) {
+  CustomAppBar({ Key key, this.title, this.avatar, this.onAvatarClick}) {
     if (title == null) height = 80;
+    if (avatar == null) avatar = "https://301222.selcdn.ru/akasi/avatars/1.png";
   }
 
   @override
@@ -39,11 +42,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image(
-                    image: NetworkImage(avatar),
-                    width: 50,
+                GestureDetector(
+                  onTap: onAvatarClick,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: CachedNetworkImage(
+                      imageUrl: avatar,
+                      width: 50,
+                      placeholder: (context, url) => new Image.asset('assets/fallback_avatar.png', width: 50,),
+                      errorWidget: (context, url, error) => new Image.asset('assets/fallback_avatar.png', width: 50,),
+                    ),
                   ),
                 )
               ],

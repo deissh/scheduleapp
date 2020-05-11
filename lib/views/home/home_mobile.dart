@@ -17,6 +17,30 @@ class _HomeMobile extends StatelessWidget {
       appBar: CustomAppBar(
         title: "Расписание",
         avatar: viewModel.user != null ? viewModel.user.photoUrl : "https://301222.selcdn.ru/akasi/avatars/1.png", // simple fallback
+        onAvatarClick: () {
+          showCupertinoModalPopup(
+            context: context,
+            builder: (BuildContext context) => new CupertinoActionSheet(
+              actions: <Widget>[
+                CupertinoActionSheetAction(
+                  child: const Text('Настройки'),
+                  onPressed: () {},
+                ),
+
+                CupertinoActionSheetAction(
+                  child: const Text('Выйти'),
+                  isDestructiveAction: true,
+                  onPressed: viewModel.logout,
+                ),
+              ],
+              cancelButton: CupertinoActionSheetAction(
+                child: const Text('Отмена'),
+                isDefaultAction: true,
+                onPressed: () { Navigator.pop(context, 'Cancel'); },
+              ),
+            )
+          );
+        },
       ),
       body: ListView(
         physics: BouncingScrollPhysics(),
