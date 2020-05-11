@@ -1,31 +1,60 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:scheduleapp/views/greeting/greeting_view.dart';
-import 'package:scheduleapp/views/login/login_view.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:scheduleapp/views/sign_in/sign_in_view.dart';
 
 import 'core/locator.dart';
 import 'core/providers.dart';
 import 'core/services/navigator_service.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
   await LocatorInjector.setupLocator();
-  // SystemChrome.setPreferredOrientations(
-  //   [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]
-  // );
-  SharedPreferences.getInstance();
-  var app = MainApplication();
-  await app.init();
-
-  runApp(app);
+  runApp(new MainApplication());
 }
 
 class MainApplication extends StatelessWidget {
-  SharedPreferences prefs;
+  Widget _getLoading(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(20),
+      color: Theme.of(context).primaryColor,
+      child: Column(
+        children: <Widget>[
+          Spacer(),
+          Text(
+            "Загрузка пользователя...",
+            style: TextStyle(
+              fontSize: 15.0,
+              color: Colors.white,
+            ),
+          )
+        ],
+      ),
+    );
+  }
 
-  Future<void> init() async {
-    prefs = await SharedPreferences.getInstance();
+  Widget _getLandingPage() {
+    return StreamBuilder<FirebaseUser>(
+      stream: FirebaseAuth.instance.onAuthStateChanged,
+      builder: (BuildContext context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return _getLoading(context);
+        }
+
+        if (snapshot.hasData) {
+          return new GreetingView();
+          // if (snapshot.data.providerData.length == 1) { // logged in using email and password
+          //   return snapshot.data.isEmailVerified
+          //       ? MainPage()
+          //       : VerifyEmailPage(user: snapshot.data);
+          // } else { // logged in using other providers
+          //   return MainPage();
+          // }
+        } else {
+          return new SignInView();
+        }
+      },
+    );
   }
 
   @override
@@ -37,7 +66,7 @@ class MainApplication extends StatelessWidget {
       child: WillPopScope(
         child: MaterialApp(
           navigatorKey: _nav.navigatorKey,
-          home:  prefs.getBool("logined") == true ? new GreetingView() : new LoginView(),
+          home: _getLandingPage()
         ),
         onWillPop: () {
           _nav.pop();

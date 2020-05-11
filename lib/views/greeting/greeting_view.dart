@@ -16,6 +16,7 @@ class GreetingView extends StatelessWidget {
     return ViewModelProvider<GreetingViewModel>.withConsumer(
       viewModel: viewModel,
       onModelReady: (viewModel) async {
+        await viewModel.init();
         await viewModel.checkUpdates();
       },
       builder: (context, viewModel, child) {

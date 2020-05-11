@@ -1,17 +1,24 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:scheduleapp/core/base/base_view_model.dart';
 import 'package:scheduleapp/core/locator.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
-import 'package:scheduleapp/views/home/home_view.dart';
 import 'package:scheduleapp/views/tabs/tabs_view.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class GreetingViewModel extends BaseViewModel {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final NavigatorService _navigator = locator<NavigatorService>();
+
   String _status = "";
   String _firstName = "";
 
-  NavigatorService _navigator = locator<NavigatorService>();
   GreetingViewModel();
+
+  Future init() async {
+    var user = await _auth.currentUser();
+
+    _firstName = user.displayName;
+  }
 
   set status(String value) {
     _status = value;
@@ -30,7 +37,6 @@ class GreetingViewModel extends BaseViewModel {
   String get gretting {
     var hour = new DateTime.now().hour;
 
-
     if (hour < 10)
       return "С добрым утром,";
     else if(hour < 16)
@@ -42,9 +48,6 @@ class GreetingViewModel extends BaseViewModel {
   }
 
   Future<void> checkUpdates() async {
-    var prefs = await SharedPreferences.getInstance();
-    firstName = prefs.getString("current_user_first_name");
-
     status = "Проверка обновлений";
     await Future.delayed(Duration(seconds: 3));
 

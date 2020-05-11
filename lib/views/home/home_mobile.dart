@@ -16,6 +16,7 @@ class _HomeMobile extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         title: "Расписание",
+        avatar: viewModel.user != null ? viewModel.user.photoUrl : "https://301222.selcdn.ru/akasi/avatars/1.png", // simple fallback
       ),
       body: ListView(
         physics: BouncingScrollPhysics(),

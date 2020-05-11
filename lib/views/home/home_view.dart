@@ -30,7 +30,8 @@ class _HomeViewState extends State<HomeView> with AutomaticKeepAliveClientMixin 
     return ViewModelProvider<HomeViewModel>.withConsumer(
       viewModel: viewModel,
       onModelReady: (viewModel) async {
-        viewModel.loadEvents();
+        await viewModel.init();
+        await viewModel.loadEvents();
       },
       builder: (context, viewModel, child) {
         return ScreenTypeLayout(

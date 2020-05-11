@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:scheduleapp/core/base/base_view_model.dart';
 import 'package:scheduleapp/core/dto/motd.dart';
 import 'package:scheduleapp/core/dto/week_schedule.dart';
@@ -6,8 +7,16 @@ class HomeViewModel extends BaseViewModel {
   List<Motd> motds = [];
   WeekScheduleDto week;
   DateTime _selectedDay = DateTime.now();
+  FirebaseUser user;
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   HomeViewModel();
+
+  Future init() async {
+    user = await _auth.currentUser();
+    notifyListeners();
+  }
 
   DateTime get selectedDay => _selectedDay;
   set selectedDay (DateTime date) {

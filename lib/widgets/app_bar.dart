@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   String title = "";
   double height = 140.0;
+  String avatar = "https://301222.selcdn.ru/akasi/avatars/1.png";
 
-  CustomAppBar({ Key key, this.title}) {
+  CustomAppBar({ Key key, this.title, this.avatar}) {
     if (title == null) height = 80;
   }
 
@@ -41,7 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image(
-                    image: NetworkImage("https://301222.selcdn.ru/akasi/avatars/1.png"),
+                    image: NetworkImage(avatar),
                     width: 50,
                   ),
                 )

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "591016810153",
+    "firebase_url": "https://sheduler-dipl.firebaseio.com",
+    "project_id": "sheduler-dipl",
+    "storage_bucket": "sheduler-dipl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591016810153:android:21749f7a2fcc0207c63bb8",
+        "android_client_info": {
+          "package_name": "io.deissh.scheduleapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "591016810153-3luo9p08flb0t6ijebacbvtf5347adq3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.deissh.scheduleapp",
+            "certificate_hash": "924719ba8831ce98415d9e7c414118412ed66e0d"
+          }
+        },
+        {
+          "client_id": "591016810153-23ll5ae2m40hqssjhuqg9n3da8g92p1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr5CwcA8Aj2bmJ5_lnQ424oOKq0GM2NSI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "591016810153-23ll5ae2m40hqssjhuqg9n3da8g92p1k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
