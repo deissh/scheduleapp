@@ -32,7 +32,7 @@ class _GreetingMobile extends StatelessWidget {
 
                 DelayedAnimation(
                   child: Text(
-                    viewModel.firstName,
+                    viewModel.api.currentUser?.displayName,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 35.0,

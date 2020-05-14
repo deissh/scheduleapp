@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:scheduleapp/core/dto/motd.dart';
 
 class EventCard extends StatelessWidget {
-  final Motd motd;
+  final MotdDTO motd;
 
   EventCard(this.motd);
 

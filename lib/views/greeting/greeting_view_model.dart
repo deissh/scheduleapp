@@ -1,24 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:scheduleapp/core/base/base_view_model.dart';
+import 'package:scheduleapp/core/dto/user.dart';
 import 'package:scheduleapp/core/locator.dart';
+import 'package:scheduleapp/core/services/api_service.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
 import 'package:scheduleapp/views/tabs/tabs_view.dart';
 
 class GreetingViewModel extends BaseViewModel {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final NavigatorService _navigator = locator<NavigatorService>();
+  final ApiService api = locator<ApiService>();
 
   String _status = "";
-  String _firstName = "";
 
   GreetingViewModel();
-
-  Future init() async {
-    var user = await _auth.currentUser();
-
-    _firstName = user.displayName;
-  }
 
   set status(String value) {
     _status = value;
@@ -27,12 +23,6 @@ class GreetingViewModel extends BaseViewModel {
     log.d("guard status chaged");
   }
   String get status => _status;
-
-  get firstName => _firstName;
-  set firstName(value) {
-    _firstName = value;
-    notifyListeners();
-  }
 
   String get gretting {
     var hour = new DateTime.now().hour;

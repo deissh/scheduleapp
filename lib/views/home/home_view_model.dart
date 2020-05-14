@@ -8,7 +8,7 @@ import 'package:scheduleapp/core/services/navigator_service.dart';
 import 'package:scheduleapp/views/sign_in/sign_in_view.dart';
 
 class HomeViewModel extends BaseViewModel {
-  List<Motd> motds = [];
+  List<MotdDTO> motds = [];
   WeekScheduleDto week;
   DateTime _selectedDay = DateTime.now();
   FirebaseUser user;
@@ -34,8 +34,8 @@ class HomeViewModel extends BaseViewModel {
     await Future.delayed(Duration(seconds: 3));
 
     motds = [
-      Motd.fromJson('{"id": "4d31304c-d53a-4166-9f7b-a34e4ea8382e","created_at": "2020-04-14T10:25:12+0000","message": "lorem ipsu","type": "Обновление","type_color": "#EE26ff"}'),
-      Motd.fromJson('{"id": "4d31304c-d53a-4166-9f7b-a34e4ea8382e","created_at": "2020-04-17T10:25:12+0000","message": "lorem ipsu","type": "Обновление","type_color": "#6666ff"}'),
+      MotdDTO.fromJson('{"id": "4d31304c-d53a-4166-9f7b-a34e4ea8382e","created_at": "2020-04-14T10:25:12+0000","message": "lorem ipsu","type": "Обновление","type_color": "#EE26ff"}'),
+      MotdDTO.fromJson('{"id": "4d31304c-d53a-4166-9f7b-a34e4ea8382e","created_at": "2020-04-17T10:25:12+0000","message": "lorem ipsu","type": "Обновление","type_color": "#6666ff"}'),
     ];
     notifyListeners();
   }

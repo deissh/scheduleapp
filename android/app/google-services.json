@@ -1,21 +1,29 @@
 {
   "project_info": {
-    "project_number": "591016810153",
-    "firebase_url": "https://sheduler-dipl.firebaseio.com",
-    "project_id": "sheduler-dipl",
-    "storage_bucket": "sheduler-dipl.appspot.com"
+    "project_number": "684493984514",
+    "firebase_url": "https://rak-sheduller-prod.firebaseio.com",
+    "project_id": "rak-sheduller-prod",
+    "storage_bucket": "rak-sheduller-prod.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:591016810153:android:21749f7a2fcc0207c63bb8",
+        "mobilesdk_app_id": "1:684493984514:android:a13f062abc627a7411681b",
         "android_client_info": {
           "package_name": "io.deissh.scheduleapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "591016810153-3luo9p08flb0t6ijebacbvtf5347adq3.apps.googleusercontent.com",
+          "client_id": "684493984514-2abvin272cg5v2k0mcasj8mp12rgq6c9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.deissh.scheduleapp",
+            "certificate_hash": "3417e06fabad0638844f33d3e965543aeb7a417d"
+          }
+        },
+        {
+          "client_id": "684493984514-95kbonivviqn7rraemks2cv0tkp784jl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "io.deissh.scheduleapp",
@@ -23,20 +31,20 @@
           }
         },
         {
-          "client_id": "591016810153-23ll5ae2m40hqssjhuqg9n3da8g92p1k.apps.googleusercontent.com",
+          "client_id": "684493984514-u7s2r7slnk6vunlj9hsgu2gjfnvn9c9v.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBr5CwcA8Aj2bmJ5_lnQ424oOKq0GM2NSI"
+          "current_key": "AIzaSyAS1no_zMbSVXhrJ3uaRXyc4guZXDbIT2E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "591016810153-23ll5ae2m40hqssjhuqg9n3da8g92p1k.apps.googleusercontent.com",
+              "client_id": "684493984514-u7s2r7slnk6vunlj9hsgu2gjfnvn9c9v.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -4,14 +4,14 @@
 
 import 'dart:convert';
 
-class Motd {
+class MotdDTO {
     String id;
     DateTime createdAt;
     String message;
     String type;
     String typeColor;
 
-    Motd({
+    MotdDTO({
         this.id,
         this.createdAt,
         this.message,
@@ -19,14 +19,14 @@ class Motd {
         this.typeColor,
     });
 
-    Motd copyWith({
+    MotdDTO copyWith({
         String id,
         String createdAt,
         String message,
         String type,
         String typeColor,
     }) =>
-        Motd(
+        MotdDTO(
             id: id ?? this.id,
             createdAt: createdAt ?? this.createdAt,
             message: message ?? this.message,
@@ -34,11 +34,11 @@ class Motd {
             typeColor: typeColor ?? this.typeColor,
         );
 
-    factory Motd.fromJson(String str) => Motd.fromMap(json.decode(str));
+    factory MotdDTO.fromJson(String str) => MotdDTO.fromMap(json.decode(str));
 
     String toJson() => json.encode(toMap());
 
-    factory Motd.fromMap(Map<String, dynamic> json) => Motd(
+    factory MotdDTO.fromMap(Map<String, dynamic> json) => MotdDTO(
         id: json["id"],
         createdAt: DateTime.parse(json["created_at"]),
         message: json["message"],

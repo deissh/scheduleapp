@@ -6,6 +6,7 @@ import 'package:scheduleapp/views/sign_in/sign_in_view.dart';
 
 import 'core/locator.dart';
 import 'core/providers.dart';
+import 'core/services/api_service.dart';
 import 'core/services/navigator_service.dart';
 
 void main() async {
@@ -42,7 +43,14 @@ class MainApplication extends StatelessWidget {
         }
 
         if (snapshot.hasData) {
-          return new GreetingView();
+          return FutureBuilder(
+            future: locator<ApiService>().populateCurrentUser(snapshot.data),
+            builder: (BuildContext context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) return new GreetingView();
+
+              return _getLoading(context);
+            },
+          );
           // if (snapshot.data.providerData.length == 1) { // logged in using email and password
           //   return snapshot.data.isEmailVerified
           //       ? MainPage()
