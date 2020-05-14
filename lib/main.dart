@@ -46,7 +46,10 @@ class MainApplication extends StatelessWidget {
           return FutureBuilder(
             future: locator<ApiService>().populateCurrentUser(snapshot.data),
             builder: (BuildContext context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) return new GreetingView();
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.data == null) return new SignInView();
+                return new GreetingView();
+              };
 
               return _getLoading(context);
             },

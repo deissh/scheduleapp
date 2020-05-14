@@ -15,6 +15,8 @@ class ApiService extends BaseService {
     if (user != null) {
       _currentUser = await getUser(user.uid);
     }
+
+    return _currentUser;
   }
 
   Future<void> createUser(UserDTO user) async {

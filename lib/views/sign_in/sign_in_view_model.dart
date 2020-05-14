@@ -31,8 +31,14 @@ class SignInViewModel extends BaseViewModel {
           avatarUrl: user.photoUrl,
           registrationDate: new DateTime.now().toIso8601String(),
           group: "none",
+          notifications: Notifications(
+            pm: true,
+            updates: true,
+            mentions: true
+          )
         ));
-        data = await _api.getUser(user.uid);
+
+        await _api.populateCurrentUser(user);
       } catch (e) {
         return showDialog(context: context, builder: (BuildContext context) {
           return AlertDialog(
