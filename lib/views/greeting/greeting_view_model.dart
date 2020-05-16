@@ -5,7 +5,6 @@ import 'package:scheduleapp/core/dto/user.dart';
 import 'package:scheduleapp/core/locator.dart';
 import 'package:scheduleapp/core/services/api_service.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
-import 'package:scheduleapp/views/home/home_view.dart';
 import 'package:scheduleapp/views/sign_in/sign_in_view.dart';
 import 'package:scheduleapp/views/tabs/tabs_view.dart';
 
@@ -62,7 +61,7 @@ class GreetingViewModel extends BaseViewModel {
       await Future.delayed(Duration(seconds: 3));
 
       _navigator.navigateToPageWithReplacement(
-        MaterialPageRoute(builder: (context) => new HomeView())
+        MaterialPageRoute(builder: (context) => new TabsView())
       );
     });
   }
