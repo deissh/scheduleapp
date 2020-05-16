@@ -53,7 +53,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       errorWidget: (context, url, error) => new Image.asset('assets/fallback_avatar.png', width: 50,),
                     ),
                   ),
-                )
+                ),
+
+                Spacer(),
+
+                Text("qwerty")
               ],
             ),
 

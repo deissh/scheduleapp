@@ -18,8 +18,14 @@ class SignInViewModel extends BaseViewModel {
 
   SignInViewModel();
 
-  Future signIn(BuildContext context) async {
-    var user = await signInWithGoogle();
+  Future signIn(BuildContext context, String method) async {
+    var user;
+
+    switch (method) {
+      case "google":
+        user = await signInWithGoogle();
+        break;
+    }
 
     var data = await _api.getUser(user.uid);
     if (data == null) {
@@ -54,27 +60,6 @@ class SignInViewModel extends BaseViewModel {
   }
 
   Future<FirebaseUser> signInWithGoogle() async {
-    final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
-    final GoogleSignInAuthentication googleSignInAuthentication =
-        await googleSignInAccount.authentication;
-
-    final AuthCredential credential = GoogleAuthProvider.getCredential(
-      accessToken: googleSignInAuthentication.accessToken,
-      idToken: googleSignInAuthentication.idToken,
-    );
-
-    final FirebaseUser user = await _auth.signInWithCredential(credential);
-
-    assert(!user.isAnonymous);
-    assert(await user.getIdToken() != null);
-
-    final FirebaseUser currentUser = await _auth.currentUser();
-    assert(user.uid == currentUser.uid);
-
-    return user;
-  }
-
-  Future<FirebaseUser> signInAnonnimus() async {
     final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
     final GoogleSignInAuthentication googleSignInAuthentication =
         await googleSignInAccount.authentication;

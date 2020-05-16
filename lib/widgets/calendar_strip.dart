@@ -169,13 +169,13 @@ class CalendarStripState extends State<CalendarStrip>
   isDateBefore(date1, date2) {
     DateTime _date1 = DateTime(date1.year, date1.month, date1.day);
     DateTime _date2 = DateTime(date2.year, date2.month, date2.day);
-    return _date1.isBefore(_date2) || _date1.isAtSameMomentAs(_date2);
+    return _date1.isBefore(_date2);
   }
 
   isDateAfter(date1, date2) {
     DateTime _date1 = DateTime(date1.year, date1.month, date1.day);
     DateTime _date2 = DateTime(date2.year, date2.month, date2.day);
-    return _date1.isAfter(_date2) || _date1.isAtSameMomentAs(_date2);
+    return _date1.isAfter(_date2);
   }
 
   DateTime getDateOnly(DateTime dateTimeObj) {

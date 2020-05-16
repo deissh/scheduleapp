@@ -5,10 +5,10 @@ class _SignInMobile extends StatelessWidget {
 
   _SignInMobile(this.viewModel);
 
-  Widget _signInButton(BuildContext context) {
+  Widget _googleButton(BuildContext context) {
     return OutlineButton(
       onPressed: () async {
-        await viewModel.signIn(context);
+        await viewModel.signIn(context, "google");
       },
 
       splashColor: Colors.grey,
@@ -56,7 +56,7 @@ class _SignInMobile extends StatelessWidget {
                   delay: 300,
                 ),
 
-                SizedBox(height: 50,),
+                SizedBox(height: 50),
 
                 DelayedAnimation(
                   child: Text(
@@ -73,7 +73,7 @@ class _SignInMobile extends StatelessWidget {
                 Spacer(),
 
                 DelayedAnimation(
-                  child: _signInButton(context),
+                  child: _googleButton(context),
                   delay: 1500,
                 ),
 

@@ -30,10 +30,14 @@ class HomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  loadEvents() async {
+  Future<void> loadEvents() async {
     log.d("loading MOTD");
     motds = await _api.getMOTD();
     notifyListeners();
+  }
+
+  Future<void> onDateSelected(DateTime selected) async {
+    selectedDay = selected;
   }
 
   Future<void> logout() async {

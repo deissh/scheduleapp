@@ -64,11 +64,10 @@ class _HomeMobile extends StatelessWidget {
           Container(
             child: CalendarStrip(
               selectedDate: viewModel.selectedDay,
+              onDateSelected: viewModel.onDateSelected,
               startDate: firstMonday(),
-              endDate: firstMonday().add(new Duration(days: 14)),
-              onDateSelected: (data) {
-                viewModel.selectedDay = data;
-              },
+              endDate: firstMonday().add(new Duration(days: 6)),
+
               dateTileBuilder: (date, selectedDate, rowIndex, dayName, isDateMarked, isDateOutOfRange) {
                 bool isSelectedDate = date.compareTo(selectedDate) == 0;
                 Color fontColor = isDateOutOfRange ? Colors.black26 : Colors.black87;
