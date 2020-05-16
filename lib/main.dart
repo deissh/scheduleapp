@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +11,10 @@ import 'core/services/api_service.dart';
 import 'core/services/navigator_service.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firestore.instance.settings(persistenceEnabled: true);
   await LocatorInjector.setupLocator();
+
   runApp(new MainApplication());
 }
 

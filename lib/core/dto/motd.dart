@@ -5,14 +5,12 @@
 import 'dart:convert';
 
 class MotdDTO {
-    String id;
     DateTime createdAt;
     String message;
     String type;
     String typeColor;
 
     MotdDTO({
-        this.id,
         this.createdAt,
         this.message,
         this.type,
@@ -27,7 +25,6 @@ class MotdDTO {
         String typeColor,
     }) =>
         MotdDTO(
-            id: id ?? this.id,
             createdAt: createdAt ?? this.createdAt,
             message: message ?? this.message,
             type: type ?? this.type,
@@ -39,7 +36,6 @@ class MotdDTO {
     String toJson() => json.encode(toMap());
 
     factory MotdDTO.fromMap(Map<String, dynamic> json) => MotdDTO(
-        id: json["id"],
         createdAt: DateTime.parse(json["created_at"]),
         message: json["message"],
         type: json["type"],
@@ -47,7 +43,6 @@ class MotdDTO {
     );
 
     Map<String, dynamic> toMap() => {
-        "id": id,
         "created_at": createdAt.toIso8601String(),
         "message": message,
         "type": type,
