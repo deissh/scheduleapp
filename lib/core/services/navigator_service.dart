@@ -1,12 +1,8 @@
-import 'package:scheduleapp/views/login/login_view.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../core/base/base_service.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorService extends BaseService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-  SharedPreferences prefs;
 
   Future<T> navigateToPage<T>(MaterialPageRoute<T> pageRoute) async {
     log.i('navigateToPage: pageRoute: ${pageRoute.settings.name}');
