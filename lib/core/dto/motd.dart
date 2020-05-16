@@ -36,7 +36,7 @@ class MotdDTO {
     String toJson() => json.encode(toMap());
 
     factory MotdDTO.fromMap(Map<String, dynamic> json) => MotdDTO(
-        createdAt: DateTime.parse(json["created_at"]),
+        createdAt: DateTime.parse(json["created_at"]).toLocal(),
         message: json["message"],
         type: json["type"],
         typeColor: json["type_color"],
