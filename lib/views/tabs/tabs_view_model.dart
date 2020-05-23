@@ -6,7 +6,7 @@ class TabsViewModel extends BaseViewModel {
   List<dynamic> tabs = [
     Icons.apps,
     Icons.school,
-    Icons.portrait
+    Icons.account_circle
     // Icons.notifications,
     // Icons.portrait,
   ];

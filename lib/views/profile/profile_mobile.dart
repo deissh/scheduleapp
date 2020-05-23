@@ -19,9 +19,13 @@ class _ProfileMobile extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                  padding: EdgeInsets.all(15),
-                  child: Icon(Icons.settings, size: 30, color: Theme.of(context).accentIconTheme.color),
+                GestureDetector(
+                  onTap: viewModel.settings,
+
+                  child: Container(
+                    padding: EdgeInsets.all(15),
+                    child: Icon(Icons.settings, size: 30, color: Theme.of(context).accentIconTheme.color),
+                  ),
                 ),
 
                 Spacer(),
@@ -41,12 +45,18 @@ class _ProfileMobile extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
-                CircleAvatar(
-                  minRadius: 60,
-                  backgroundColor: Theme.of(context).textSelectionColor,
+
+                Hero(
+                  tag: "avatar",
                   child: CircleAvatar(
-                    backgroundImage: new CachedNetworkImageProvider(viewModel.user.avatarUrl),
-                    minRadius: 55,
+                    minRadius: 60,
+                    backgroundColor: Theme.of(context).textSelectionColor,
+                    child: CircleAvatar(
+                      backgroundImage: new CachedNetworkImageProvider(
+                        viewModel.user.avatarUrl
+                      ),
+                      minRadius: 55,
+                    ),
                   ),
                 ),
               ],
