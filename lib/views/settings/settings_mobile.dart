@@ -48,9 +48,7 @@ class _SettingsMobile extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          // Add your onPressed code here!
-        },
+        onPressed: viewModel.save,
         label: Text('Сохранить'),
         icon: Icon(Icons.save),
       ),
@@ -86,6 +84,9 @@ class _SettingsMobile extends StatelessWidget {
                       decoration: InputDecoration(
                         labelText: "Отображаемое имя"
                       ),
+                      onSaved: (value) {
+                        viewModel.user.displayName = value;
+                      },
                       validator: (value) {
                         return value.isEmpty ? 'Необходимо указать свое имя' : null;
                       },
@@ -97,6 +98,9 @@ class _SettingsMobile extends StatelessWidget {
                       decoration: InputDecoration(
                         labelText: "Почта"
                       ),
+                      onSaved: (value) {
+                        viewModel.user.email = value;
+                      },
                       validator: (value) {
                         return value.isEmpty ? 'Необходимо указать свою почту' : null;
                       },
@@ -105,7 +109,9 @@ class _SettingsMobile extends StatelessWidget {
                     DropdownButtonFormField(
                       value: viewModel.user.group,
                       hint: const Text("Группа"),
-                      onChanged: (_) {},
+                      onChanged: (value) {
+                        viewModel.user.group = value;
+                      },
                       items: <String>['none', 'ПР-20', 'ПР-21'].map((String value) {
                         return new DropdownMenuItem<String>(
                           value: value,

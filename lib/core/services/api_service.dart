@@ -27,7 +27,7 @@ class ApiService extends BaseService {
     _currentUser = null;
   }
 
-  Future<void> createUser(UserDTO user) async {
+  Future<void> setUser(UserDTO user) async {
     await _usersCollectionReference.document(user.id).setData(user.toJson());
   }
 
@@ -51,5 +51,26 @@ class ApiService extends BaseService {
       log.e(e.toString());
       return null;
     }
+  }
+
+  Future<UserDTO> updateUser(UserDTO user) async {
+    var fa = await FirebaseAuth.instance.currentUser();
+
+    if (fa.displayName != user.displayName || fa.photoUrl != user.avatarUrl) {
+      var update = UserUpdateInfo();
+
+      update.displayName = user.displayName;
+      update.photoUrl = user.avatarUrl;
+
+      await fa.updateProfile(update);
+    }
+
+    if (fa.email != user.email)
+      await fa.updateEmail(user.email);
+
+    await setUser(user);
+    _currentUser = user;
+
+    return user;
   }
 }

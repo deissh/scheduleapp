@@ -30,7 +30,7 @@ class SignInViewModel extends BaseViewModel {
     var data = await _api.getUser(user.uid);
     if (data == null) {
       try {
-        await _api.createUser(new UserDTO(
+        await _api.setUser(new UserDTO(
           id: user.uid,
           displayName: user.displayName,
           email: user.email,
