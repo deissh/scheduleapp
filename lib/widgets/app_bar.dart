@@ -54,10 +54,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ),
                   ),
                 ),
-
-                Spacer(),
-
-                Text("qwerty")
               ],
             ),
 

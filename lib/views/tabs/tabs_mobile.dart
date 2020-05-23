@@ -16,6 +16,7 @@ class _TabsMobile extends StatelessWidget {
 
             HomeView(),
             NewsView(),
+            ProfileView()
             // NotificationsView(),
             // HomeView(),
 
