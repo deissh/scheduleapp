@@ -5,6 +5,7 @@ import 'package:scheduleapp/core/dto/user.dart';
 import 'package:scheduleapp/core/locator.dart';
 import 'package:scheduleapp/core/services/api_service.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
+import 'package:scheduleapp/views/settings/settings_view.dart';
 import 'package:scheduleapp/views/sign_in/sign_in_view.dart';
 import 'package:scheduleapp/views/tabs/tabs_view.dart';
 
@@ -46,7 +47,7 @@ class GreetingViewModel extends BaseViewModel {
   Future<void> checkUpdates() async {
     status = "Загрузка профиля";
     _auth.onAuthStateChanged.listen((firebaseUser) async {
-      if (firebaseUser == null) {
+      if (firebaseUser == null || await _api.getUser(firebaseUser.uid) == null) {
         return _navigator.navigateToPageWithReplacement(
           MaterialPageRoute(builder: (context) => new SignInView())
         );

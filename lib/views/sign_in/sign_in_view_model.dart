@@ -7,6 +7,7 @@ import 'package:scheduleapp/core/locator.dart';
 import 'package:scheduleapp/core/services/api_service.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
 import 'package:scheduleapp/views/greeting/greeting_view.dart';
+import 'package:scheduleapp/views/settings/settings_view.dart';
 
 
 class SignInViewModel extends BaseViewModel {
@@ -45,6 +46,8 @@ class SignInViewModel extends BaseViewModel {
         ));
 
         await _api.populateCurrentUser(user);
+        await _navigator.navigateToPageWithReplacement(MaterialPageRoute(builder: (context) => new SettingsView()));
+        return;
       } catch (e) {
         return showDialog(context: context, builder: (BuildContext context) {
           return AlertDialog(
