@@ -28,7 +28,7 @@ class _SettingsMobile extends StatelessWidget {
             left: 90
           ),
           child: MaterialButton(
-            onPressed: () {},
+            onPressed: viewModel.pickAvatar,
             color: Theme.of(context).primaryColor,
             textColor: Colors.white,
             child: Icon(

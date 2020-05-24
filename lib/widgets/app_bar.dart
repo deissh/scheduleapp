@@ -49,6 +49,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     child: CachedNetworkImage(
                       imageUrl: avatar,
                       width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
                       placeholder: (context, url) => new Image.asset('assets/fallback_avatar.png', width: 50,),
                       errorWidget: (context, url, error) => new Image.asset('assets/fallback_avatar.png', width: 50,),
                     ),
