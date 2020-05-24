@@ -1,65 +1,79 @@
 {
-    "week_num": 12,
-    "week": [
+    "ПР-20": [
         [
             {
                 "name": "Языки програмирования",
-                "subname": "МДК-01-01",
-                "lecturer": {
-                    "id": 10,
-                    "first_name": "Leon",
-                    "second_name": "Neff",
-                    "patronymic": "None"
-                },
+                "lecturer": "Some Name",
                 "location": "204",
-                "tags": [],
-                "user_events": [
-                    "Проверочная работа"
-                ],
                 "start_at": 1581928200,
                 "end_at": 1581933900,
-                "break": true,
-                "status": "SCHEDULED"
+                "type": "lection",
+                "type_color": "#44bdff"
             },
             {
                 "name": "Языки програмирования",
-                "subname": "МДК-01-01",
-                "lecturer": {
-                    "id": 10,
-                    "first_name": "Leon",
-                    "second_name": "Neff",
-                    "patronymic": "None"
-                },
+                "lecturer": "Some Name",
                 "location": "204",
-                "tags": [],
-                "user_events": [
-                    "Проверочная работа"
-                ],
                 "start_at": 1581928200,
                 "end_at": 1581933900,
-                "break": true,
-                "status": "SCHEDULED"
+                "type": "lection",
+                "type_color": "#44bdff"
+            },
+            {
+                "name": "Обед",
+                "lecturer": "Some Name",
+                "location": "204",
+                "start_at": 1581928200,
+                "end_at": 1581933900,
+                "type": "break",
+                "type_color": "#ee26ff"
             }
         ],
         [
             {
                 "name": "Языки програмирования",
-                "subname": "МДК-01-01",
-                "lecturer": {
-                    "id": 10,
-                    "first_name": "Leon",
-                    "second_name": "Neff",
-                    "patronymic": "None"
-                },
+                "lecturer": "Some Name",
                 "location": "204",
-                "tags": [],
-                "user_events": [
-                    "Проверочная работа"
-                ],
                 "start_at": 1581928200,
                 "end_at": 1581933900,
-                "break": true,
-                "status": "CANCELED"
+                "type": "lection",
+                "type_color": "#44bdff"
+            },
+            {
+                "name": "Языки програмирования",
+                "lecturer": "Some Name",
+                "location": "204",
+                "start_at": 1581928200,
+                "end_at": 1581933900,
+                "type": "lection",
+                "type_color": "#44bdff"
+            },
+            {
+                "name": "Обед",
+                "lecturer": "Some Name",
+                "location": "204",
+                "start_at": 1581928200,
+                "end_at": 1581933900,
+                "type": "break",
+                "type_color": "#ee26ff"
+            },
+            {
+                "name": "Языки програмирования",
+                "lecturer": "Some Name",
+                "location": "204",
+                "start_at": 1581928200,
+                "end_at": 1581933900,
+                "type": "lection",
+                "type_color": "#44bdff"
+            },
+            {
+                "name": "Языки програмирования",
+                "lecturer": "Some Name",
+                "location": "204",
+                "start_at": 1581928200,
+                "end_at": 1581933900,
+                "type": "lection",
+                "type_color": "#44bdff"
             }
         ]
     ]

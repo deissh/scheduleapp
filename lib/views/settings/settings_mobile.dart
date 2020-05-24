@@ -112,10 +112,10 @@ class _SettingsMobile extends StatelessWidget {
                       onChanged: (value) {
                         viewModel.user.group = value;
                       },
-                      items: <String>['none', 'ПР-20', 'ПР-21'].map((String value) {
+                      items: GroupTranslator.entries.map((e) {
                         return new DropdownMenuItem<String>(
-                          value: value,
-                          child: new Text(value),
+                          value: e.key,
+                          child: new Text(e.value),
                         );
                       }).toList(),
                       validator: (value) {

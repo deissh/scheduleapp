@@ -69,8 +69,7 @@ class _ProfileMobile extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              "Группа " +
-              (viewModel.user.group == "none" ? "Группа не выбрана" : viewModel.user.group),
+              "Группа ${GroupTranslator[viewModel.user.group]}",
               style: TextStyle(fontSize: 14.0, color: Colors.black)
             ),
 

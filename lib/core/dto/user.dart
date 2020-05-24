@@ -1,3 +1,9 @@
+const GroupTranslator = {
+  'none': 'Не выбрана',
+  'pr20': 'ПР-20',
+  'pr21': 'ПР-21',
+};
+
 class UserDTO {
   String id;
   String displayName;

@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:scheduleapp/core/dto/week.dart';
+import 'package:scheduleapp/core/dto/week_schedule.dart';
 
 class ScheduleItem extends StatelessWidget {
-  final WeekDto item;
+  final Schedule item;
 
   ScheduleItem(this.item);
 
@@ -17,7 +17,7 @@ class ScheduleItem extends StatelessWidget {
             decoration: new BoxDecoration(
               shape: BoxShape.rectangle,
               color: new Color(
-                int.parse("0x" + "44bdff") // todo: replace
+                int.parse(item.typeColor) // todo: replace
               ).withOpacity(1),
               borderRadius: BorderRadius.circular(5)
             ),
@@ -40,15 +40,15 @@ class ScheduleItem extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        "Основы Объектно-ориентированного программирования",
+                        item.name,
                         overflow: TextOverflow.clip,
                         softWrap: true,
                         style: TextStyle(
                           fontWeight: FontWeight.bold
                         ),
                       ),
-                      Text("Преподователь"),
-                      Text("кб. 203"),
+                      Text(item.lecturer),
+                      Text(item.location),
                     ]
                   ),
 

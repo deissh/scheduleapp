@@ -82,22 +82,7 @@ class _HomeMobile extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-
-                ScheduleItem(null),
-                ScheduleItem(null),
-
-                ScheduleDivider(
-                  "Обед",
-                  "",
-                  "11:50",
-                  "12:30"
-                ),
-
-                ScheduleItem(null),
-                ScheduleItem(null),
-
-              ],
+              children: viewModel.schedule,
             ),
           )
         ]

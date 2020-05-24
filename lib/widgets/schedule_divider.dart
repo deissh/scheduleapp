@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:scheduleapp/core/dto/week_schedule.dart';
 
 class ScheduleDivider extends StatelessWidget {
-  final String name;
-  final String hexColor;
-  final String startAt;
-  final String endAt;
+  final Schedule item;
 
-  ScheduleDivider(this.name, this.hexColor, this.startAt, this.endAt);
+  ScheduleDivider(this.item);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class ScheduleDivider extends StatelessWidget {
             decoration: new BoxDecoration(
               shape: BoxShape.circle,
               color: new Color(
-                int.parse("0x" + "9053c3") // todo: replace
+                int.parse(item.typeColor) // todo: replace
               ).withOpacity(1),
             ),
             width: 10.0,
@@ -34,12 +32,12 @@ class ScheduleDivider extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    startAt + " — " + endAt,
+                    item.startAt.toString() + " — " + item.endAt.toString(),
                     style: TextStyle(color: Colors.grey)
                   ),
 
                   Text(
-                    name,
+                    item.name,
                     overflow: TextOverflow.clip,
                     softWrap: true,
                     style: TextStyle(

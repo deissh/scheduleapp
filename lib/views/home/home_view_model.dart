@@ -7,12 +7,14 @@ import 'package:scheduleapp/core/locator.dart';
 import 'package:scheduleapp/core/services/api_service.dart';
 import 'package:scheduleapp/core/services/navigator_service.dart';
 import 'package:scheduleapp/views/sign_in/sign_in_view.dart';
+import 'package:scheduleapp/widgets/schedule_divider.dart';
+import 'package:scheduleapp/widgets/schedule_item.dart';
 
 class HomeViewModel extends BaseViewModel {
   List<MotdDTO> motds = [];
-  WeekScheduleDto week;
-  DateTime _selectedDay = DateTime.now();
+  DateTime selectedDay = DateTime.now();
   UserDTO user;
+  List<Widget> schedule = [];
 
   ApiService _api = locator<ApiService>();
   NavigatorService _navigator = locator<NavigatorService>();
@@ -24,25 +26,33 @@ class HomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  DateTime get selectedDay => _selectedDay;
-  set selectedDay (DateTime date) {
-    _selectedDay = date;
-    notifyListeners();
-  }
-
   Future<void> loadEvents() async {
     log.d("loading MOTD");
     motds = await _api.getMOTD();
+
+    schedule = await selectedDaySchedule();
 
     notifyListeners();
   }
 
   Future<void> onDateSelected(DateTime selected) async {
     selectedDay = selected;
+    schedule = await selectedDaySchedule();
+
+    notifyListeners();
   }
 
   Future<void> logout() async {
     await _api.signOut();
     await _navigator.navigateToPageWithReplacement(MaterialPageRoute(builder: (context) => new SignInView()));
+  }
+
+  Future<List<Widget>> selectedDaySchedule() async {
+    return (await _api.getSchedule(user.group, selectedDay)).map((el) {
+      if (el.type == "lection")
+        return ScheduleItem(el);
+      if (el.type == "break")
+        return ScheduleDivider(el);
+    }).toList();
   }
 }

@@ -3,10 +3,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:scheduleapp/core/base/base_service.dart';
 import 'package:scheduleapp/core/dto/motd.dart';
 import 'package:scheduleapp/core/dto/user.dart';
+import 'package:scheduleapp/core/dto/week_schedule.dart';
 
 class ApiService extends BaseService {
   final CollectionReference _usersCollectionReference = Firestore.instance.collection("users");
   final CollectionReference _motdCollectionReference = Firestore.instance.collection("motd");
+  final CollectionReference _scheduleCollectionReference = Firestore.instance.collection("schedule");
 
   UserDTO _currentUser;
   UserDTO get currentUser => _currentUser;
@@ -73,5 +75,17 @@ class ApiService extends BaseService {
     _currentUser = user;
 
     return user;
+  }
+
+  Future<List<Schedule>> getSchedule(String group, DateTime day) async {
+    var data = _scheduleCollectionReference.document(group);
+
+    // четная|не четная неделя - день недели
+    // warning: In accordance with ISO 8601 a week starts with Monday, which has the value 1.
+    var week = await data.collection('0_${day.weekday - 1}').getDocuments();
+
+    return week.documents
+      .map((e) => Schedule.fromMap(e.data))
+      .toList();
   }
 }
