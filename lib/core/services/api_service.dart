@@ -46,6 +46,7 @@ class ApiService extends BaseService {
       var data = await _motdCollectionReference.getDocuments();
       return data.documents
         .map((r) => MotdDTO.fromMap(r.data))
+        .where((r) => DateTime.now().subtract(Duration(days: 3)).isBefore(r.createdAt))
         .toList();
     } catch (e) {
       log.e(e.toString());

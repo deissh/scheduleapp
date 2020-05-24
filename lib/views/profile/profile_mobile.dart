@@ -10,7 +10,7 @@ class _ProfileMobile extends StatelessWidget {
     return Container(
       height: 200,
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor
+        // color: Theme.of(context).primaryColor
       ),
       child: SafeArea(
         child: Column(
@@ -24,7 +24,7 @@ class _ProfileMobile extends StatelessWidget {
 
                   child: Container(
                     padding: EdgeInsets.all(15),
-                    child: Icon(Icons.settings, size: 30, color: Theme.of(context).accentIconTheme.color),
+                    child: Icon(Icons.settings, size: 30, color: Color.fromRGBO(113,116,133, 1.0)),
                   ),
                 ),
 
@@ -35,7 +35,7 @@ class _ProfileMobile extends StatelessWidget {
 
                   child: Container(
                     padding: EdgeInsets.all(15),
-                    child: Icon(Icons.exit_to_app, size: 30, color: Theme.of(context).accentIconTheme.color),
+                    child: Icon(Icons.exit_to_app, size: 30, color: Color.fromRGBO(113,116,133, 1.0)),
                   ),
                 )
               ],
@@ -50,7 +50,7 @@ class _ProfileMobile extends StatelessWidget {
                   tag: "avatar",
                   child: CircleAvatar(
                     minRadius: 60,
-                    backgroundColor: Theme.of(context).textSelectionColor,
+                    backgroundColor: Theme.of(context).primaryColor,
                     child: CircleAvatar(
                       backgroundImage: new CachedNetworkImageProvider(
                         viewModel.user.avatarUrl
@@ -62,11 +62,16 @@ class _ProfileMobile extends StatelessWidget {
               ],
             ),
             SizedBox(height: 10),
-            Text(viewModel.user.displayName, style: TextStyle(fontSize: 22.0, color: Colors.white)),
+            Text(viewModel.user.displayName, style: TextStyle(fontSize: 22.0, color: Colors.black)),
+            Text(
+              viewModel.user.email,
+              style: TextStyle(fontSize: 14.0, color: Colors.black, fontWeight: FontWeight.w300)
+            ),
+            SizedBox(height: 20),
             Text(
               "Группа " +
               (viewModel.user.group == "none" ? "Группа не выбрана" : viewModel.user.group),
-              style: TextStyle(fontSize: 14.0, color: Colors.white)
+              style: TextStyle(fontSize: 14.0, color: Colors.black)
             ),
 
             Spacer(),

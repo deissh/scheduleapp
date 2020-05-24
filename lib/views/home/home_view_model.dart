@@ -33,6 +33,7 @@ class HomeViewModel extends BaseViewModel {
   Future<void> loadEvents() async {
     log.d("loading MOTD");
     motds = await _api.getMOTD();
+
     notifyListeners();
   }
 

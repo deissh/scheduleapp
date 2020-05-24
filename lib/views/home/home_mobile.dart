@@ -42,7 +42,7 @@ class _HomeMobile extends StatelessWidget {
               selectedDate: viewModel.selectedDay,
               onDateSelected: viewModel.onDateSelected,
               startDate: firstMonday(),
-              endDate: firstMonday().add(new Duration(days: 6)),
+              endDate: firstMonday().add(new Duration(days: 7)),
 
               dateTileBuilder: (date, selectedDate, rowIndex, dayName, isDateMarked, isDateOutOfRange) {
                 bool isSelectedDate = date.compareTo(selectedDate) == 0;
