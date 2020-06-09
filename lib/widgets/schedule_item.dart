@@ -32,7 +32,7 @@ class ScheduleItem extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text("08:30", style: TextStyle(color: Colors.grey)),
+                  Text(item.startAt, style: TextStyle(color: Colors.grey)),
 
                   Spacer(),
 
@@ -54,7 +54,7 @@ class ScheduleItem extends StatelessWidget {
 
                   Spacer(),
 
-                  Text("10:05", style: TextStyle(color: Colors.grey)),
+                  Text(item.endAt, style: TextStyle(color: Colors.grey)),
                 ],
               ),
             ),

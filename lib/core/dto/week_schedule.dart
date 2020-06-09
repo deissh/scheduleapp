@@ -36,8 +36,8 @@ class Schedule {
     String name;
     String lecturer;
     String location;
-    int startAt;
-    int endAt;
+    String startAt;
+    String endAt;
     String type;
     String typeColor;
 
@@ -76,11 +76,11 @@ class Schedule {
 
     factory Schedule.fromMap(Map<String, dynamic> json) => Schedule(
         name: json["name"],
-        lecturer: json["lecturer"],
-        location: json["location"],
-        startAt: json["start_at"],
-        endAt: json["end_at"],
-        type: json["type"],
+        lecturer: json["lecturer"] ?? "",
+        location: json["location"] ?? "",
+        startAt: json["start_at"] ?? "",
+        endAt: json["end_at"] ?? "",
+        type: json["type"] ?? "",
         typeColor: json["type_color"].replaceAll('#', '0x'),
     );
 

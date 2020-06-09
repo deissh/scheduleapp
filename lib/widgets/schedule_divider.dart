@@ -32,7 +32,7 @@ class ScheduleDivider extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    item.startAt.toString() + " — " + item.endAt.toString(),
+                    item.startAt + " — " + item.endAt,
                     style: TextStyle(color: Colors.grey)
                   ),
 
